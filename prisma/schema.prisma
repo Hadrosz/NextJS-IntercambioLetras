@@ -1,0 +1,65 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User{
+  id Int @id @default(autoincrement())
+  username String @unique
+  email String @unique
+  password String 
+  ranked Int ?
+  createdAt DateTime @default(now())
+}
+
+
+model Book{
+  id Int @id @default(autoincrement())
+  title String
+  description String ?
+  ranked Int ?
+  publictionTime DateTime
+  serie String?
+  authors Book_Author[]
+  genders Gender_Book[]
+  amount Int 
+  price Float
+  
+}
+
+model Author{
+  id Int @id @default(autoincrement())
+  name String
+  books Book_Author[]
+  ranked Int?
+}
+
+model Gender{
+  id Int @id @default(autoincrement())
+  name String
+  genders Gender_Book[]
+}
+
+model Gender_Book{
+    id Int @id @default(autoincrement())
+    bookId Int
+    genderId Int
+    book Book @relation(fields: [bookId], references: [id])
+    gender Gender @relation(fields: [genderId], references: [id])
+
+}
+
+model Book_Author{
+  id Int @id @default(autoincrement())
+  bookId Int
+  authorId Int
+  book Book @relation(fields: [bookId], references: [id])
+  author Author @relation(fields: [authorId], references: [id])
+}
