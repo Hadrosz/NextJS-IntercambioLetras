@@ -20,6 +20,9 @@ async function NavBar() {
               <li className="py-2 px-4 bg-zinc rounded-md border border-pigeon-post-300 semi-bold hover:bg-pigeon-post-950 active:bg-pigeon-post-900">
                 <Link href="/dashboard">Dashboard</Link>
               </li>
+              <li className="py-2 px-4 bg-zinc rounded-md border border-pigeon-post-300 semi-bold hover:bg-pigeon-post-950 active:bg-pigeon-post-900">
+                <Link href="/api/auth/signout">Cerrar Sesion</Link>
+              </li>
             </>
           ) : (
             <>
