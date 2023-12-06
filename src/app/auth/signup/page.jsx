@@ -8,7 +8,7 @@ import { signupPOST } from '@/services/auth/signup'
 function SignUpPage() {
   return (
     <section className="flex justify-center flex-col items-center h-[calc(100vh-7rem)] w-full ">
-      <h1 className="font-bold text-5xl mb-7">Inicio de Sesion</h1>
+      <h1 className="font-bold text-5xl mb-7 text-pigeon-post-200">Registro</h1>
       <SignUpForm />
     </section>
   )
@@ -45,13 +45,13 @@ const SignUpForm = () => {
         autoComplete="username"
         type="text"
         placeholder="Username"
-        className="p-3 rounded-md mb-2 bg-gray-900 "
+        className="p-3 rounded-lg mb-4 mt-2 bg-pigeon-post-950 border border-pigeon-post-300"
         {...register('username', {
           required: { value: true, message: 'El usuario es requerido' },
         })}
       />
       {errors.username && (
-        <span className="mb-3 text-red-600">{errors.username.message}</span>
+        <span className="mb-3 text-red">{errors.username.message}</span>
       )}
 
       <label className="text-slate-500">Correo</label>
@@ -59,32 +59,32 @@ const SignUpForm = () => {
         placeholder="ejemplo@direccion.com"
         autoComplete="email"
         type="email"
-        className="p-3 rounded-md mb-4 bg-gray-900"
+        className="p-3 rounded-lg mb-4 mt-2 bg-pigeon-post-950 border border-pigeon-post-300"
         {...register('email', {
           required: { value: true, message: 'El correo es requerido' },
         })}
       />
       {errors.email && (
-        <span className="mb-3 text-red-600">{errors.email.message}</span>
+        <span className="mb-3 text-red">{errors.email.message}</span>
       )}
 
       <label className="text-slate-500">Contraseña</label>
       <input
         autoComplete="new-password"
         type="password"
-        className="p-3 rounded-md mb-2 bg-gray-900"
+        className="p-3 rounded-lg mb-4 mt-2 bg-pigeon-post-950 border border-pigeon-post-300"
         {...register('password', {
           required: { value: true, message: 'La contraseña es requerido' },
         })}
       />
       {errors.password && (
-        <span className="mb-3 text-red-600">{errors.password.message}</span>
+        <span className="mb-3 text-red">{errors.password.message}</span>
       )}
 
       <label className="text-slate-500">Confirmar contraseña</label>
       <input
         type="password"
-        className="p-3 rounded-md mb-2 bg-gray-900"
+        className="p-3 rounded-lg mb-4 mt-2 bg-pigeon-post-950 border border-pigeon-post-300"
         {...register('confirmPassword', {
           required: {
             value: true,
@@ -93,13 +93,13 @@ const SignUpForm = () => {
         })}
       />
       {errors.confirmPassword && (
-        <span className="mb-3 text-red-600">
-          {errors.confirmPassword.message}
-        </span>
+        <span className="mb-3 text-red">{errors.confirmPassword.message}</span>
       )}
       {match && <span className="mb-3 text-red-600">{match}</span>}
-      <button className="bg-blue-600 p-3 rounded-md mt-5">Registrarse</button>
-      <span className="mb-3 text-red-600">{error}</span>
+      <button className="bg-transparent p-3 rounded-md mt-5 border border-pigeon-post-300 hover:bg-pigeon-post-900">
+        Registrarse
+      </button>
+      <span className="mb-3 text-red">{error}</span>
     </form>
   )
 }
