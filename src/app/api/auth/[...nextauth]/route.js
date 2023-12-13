@@ -1,7 +1,7 @@
 import db from '@/libs/prisma'
 import NextAuth from 'next-auth'
 import credentialsProvider from 'next-auth/providers/credentials'
-import bcrypt from 'bcryptjs-react'
+import bcrypt from 'bcryptjs'
 
 export const authOptions = {
   providers: [
@@ -18,11 +18,11 @@ export const authOptions = {
           },
         })
         if (!userFound) throw new Error('Usuario o contrasena incorrectos')
-        //const pAuth = await bcrypt.compare(
-        //  credentials.password,
-        //  userFound.password
-        //)
-        //if (!pAuth) throw new Error('Usuario o contrasena incorrectos')
+        const pAuth = await bcrypt.compare(
+          credentials.password,
+          userFound.password
+        )
+        if (!pAuth) throw new Error('Usuario o contrasena incorrectos')
         return {
           id: userFound.id,
           name: userFound.username,

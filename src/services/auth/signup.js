@@ -1,7 +1,7 @@
-const URL_SIGNUP = '/api/auth/signup'
+const URL_SIGNUP = ''
 
 export const signupPOST = async ({ username, email, password }) => {
-  const res = await fetch(URL_SIGNUP, {
+  const res = await fetch('/api/auth/signup', {
     method: 'POST',
     body: JSON.stringify({
       username,
@@ -12,6 +12,7 @@ export const signupPOST = async ({ username, email, password }) => {
       'Content-Type': 'application/json',
     },
   })
+
   const resJSON = await res.json()
   return { res, resJSON }
 }

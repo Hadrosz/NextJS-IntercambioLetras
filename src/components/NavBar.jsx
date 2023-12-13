@@ -1,36 +1,86 @@
 import Link from 'next/link'
 import { getServerSession } from 'next-auth/next'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
+import Image from 'next/image'
 
 async function NavBar() {
   const session = await getServerSession(authOptions)
 
   return (
-    <header className="w-auto m-4 px-16 flex justify-center bg-pigeon-post-950 rounded-xl h-16">
-      <nav className="w-[1440px] flex justify-between  items-center ">
-        <h1>
-          <Link href="/">Intercambio de Letras</Link>
-        </h1>
-        <ul className="flex gap-5">
+    <header className=" backdrop-blur-sm w-auto px-16 flex justify-center bg-gradient-to-b from-gradientFrom/60 to-gradientTo/20 rounded-b-3xl h-[80px]">
+      <nav className=" 	w-[1440px] flex justify-between  items-center text-white text-lg">
+        <ul className="flex gap-8 text-xl">
+          <li>
+            <Link href="/" className="flex gap-3">
+              <Image src="MainLogo.svg" width="25" height="25" alt="logo" />
+            </Link>
+          </li>
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link href="/">Books</Link>
+          </li>
+          <li>
+            <Link href="/">Series</Link>
+          </li>
+          <li>
+            <Link href="/">News</Link>
+          </li>
+        </ul>
+        <ul className="flex gap-8">
           {session?.user ? (
             <>
-              <li className="py-2 px-4 bg-zinc rounded-md border border-pigeon-post-300 semi-bold hover:bg-pigeon-post-950 active:bg-pigeon-post-900">
-                <Link href="/">Inicio</Link>
+              <li className="text-white ">
+                <Link href="/dashboard" className="flex gap-4">
+                  <Image
+                    src="/account.png"
+                    width="25"
+                    height="25"
+                    alt="account-logo"
+                  />
+                  <span>Account</span>
+                </Link>
               </li>
-              <li className="py-2 px-4 bg-zinc rounded-md border border-pigeon-post-300 semi-bold hover:bg-pigeon-post-950 active:bg-pigeon-post-900">
-                <Link href="/dashboard">Dashboard</Link>
+              <li className="text-white">
+                <Link href="/" className="flex gap-4">
+                  <Image
+                    src="/library.png"
+                    width="25"
+                    height="25"
+                    alt="Favorites-logo"
+                  />
+                  <span>Favorites</span>
+                </Link>
               </li>
-              <li className="py-2 px-4 bg-zinc rounded-md border border-pigeon-post-300 semi-bold hover:bg-pigeon-post-950 active:bg-pigeon-post-900">
-                <Link href="/api/auth/signout">Cerrar Sesion</Link>
+              <li className="text-white">
+                <Link href="/" className="flex gap-4">
+                  <Image
+                    src="/shopping.png"
+                    width="30"
+                    height="30"
+                    alt="Shopping-logo"
+                  />
+                </Link>
               </li>
             </>
           ) : (
             <>
-              <li className="py-2 px-4 bg-zinc rounded-md border border-pigeon-post-300 semi-bold hover:bg-pigeon-post-950 active:bg-pigeon-post-900">
-                <Link href="/auth/login">Inicio de Sesion</Link>
+              <li>
+                <Link
+                  href="/auth/login"
+                  className="py-2 px-12 bg-green rounded-[32px]  text-blueFort font-semibold "
+                >
+                  Log In
+                </Link>
               </li>
-              <li className="py-2 px-4 bg-zinc rounded-md border border-pigeon-post-300 semi-bold hover:bg-pigeon-post-950 active:bg-pigeon-post-900">
-                <Link href="/auth/signup">Registrarse</Link>
+              <li>
+                <Link
+                  href="/auth/signup"
+                  className="py-2 px-12 bg-blueLight rounded-[32px]  text-blueFort font-semibold "
+                >
+                  Sign Up
+                </Link>
               </li>
             </>
           )}
