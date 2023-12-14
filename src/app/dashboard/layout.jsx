@@ -1,3 +1,4 @@
+import AsideDashboard from '@/components/AsideDashboard'
 import React from 'react'
 
 export const metadata = {
@@ -8,7 +9,12 @@ export const metadata = {
 }
 
 function layout({ children }) {
-  return <div>{children}</div>
+  return (
+    <grid className="grid grid-cols-my-columns mt-6 gap-6 ">
+      <AsideDashboard />
+      {children}
+    </grid>
+  )
 }
 
 export default layout

@@ -12,7 +12,7 @@ async function NavBar() {
         <ul className="flex gap-8 text-xl">
           <li>
             <Link href="/" className="flex gap-3">
-              <Image src="MainLogo.svg" width="25" height="25" alt="logo" />
+              <Image src="/MainLogo.svg" width="25" height="25" alt="logo" />
             </Link>
           </li>
           <li>
@@ -32,14 +32,14 @@ async function NavBar() {
           {session?.user ? (
             <>
               <li className="text-white ">
-                <Link href="/dashboard" className="flex gap-4">
+                <Link href="/dashboard/settings" className="flex gap-4">
                   <Image
                     src="/account.png"
                     width="25"
                     height="25"
                     alt="account-logo"
                   />
-                  <span>Account</span>
+                  <span>{session.user.name}</span>
                 </Link>
               </li>
               <li className="text-white">

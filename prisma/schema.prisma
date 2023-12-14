@@ -15,8 +15,12 @@ model User{
   username String @unique
   email String @unique
   password String 
-  ranked Int ?
   createdAt DateTime @default(now())
+  country String?
+  city String?
+  firstName String?
+  lastName String?
+  number String?
 }
 
 

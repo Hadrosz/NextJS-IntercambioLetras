@@ -7,7 +7,7 @@ export const metadata = {
 
 export default function HomePage() {
   return (
-    <section className="flex justify-center items-center h-[calc(100vh-7rem)] ">
+    <section className="flex justify-center items-center h-[calc(100vh-7rem)] w-full ">
       <h1 className="font-bold text-5xl">Home Page</h1>
     </section>
   )
