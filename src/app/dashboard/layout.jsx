@@ -1,4 +1,5 @@
 import AsideDashboard from '@/components/AsideDashboard'
+import { SessionProvider } from 'next-auth/react'
 import React from 'react'
 
 export const metadata = {

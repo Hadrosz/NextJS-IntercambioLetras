@@ -1,10 +1,9 @@
 'use client'
-
 import { useForm } from 'react-hook-form'
 import { playfair, sofia } from '@/app/fonts'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { userPUT } from '@/services/auth/settings'
+import { userPUT } from '@/services/auth/dashboard'
 
 function Settings({ user }) {
   const [disable, setDisable] = useState(false)
@@ -41,6 +40,7 @@ function Settings({ user }) {
           <article className="w- flex flex-col gap-3">
             <label className="text-xl">Firstname</label>
             <input
+              disabled={disable}
               value={data.firstName}
               placeholder="First name"
               autoComplete="given-name"
@@ -134,7 +134,7 @@ function Settings({ user }) {
         <button
           disabled={disable}
           id="submit"
-          className={`py-4 px-16  rounded-[32px] bg-green  text-blueFort  text-xl font-semibold ${
+          className={`py-4 px-16  rounded-[32px]  text-xl font-semibold ${
             playfair.className
           } ${
             disable ? 'bg-[#d3d3d3]  text-white' : 'bg-green  text-blueFort'
