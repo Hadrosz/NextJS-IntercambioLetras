@@ -1,8 +1,7 @@
 export const metadata = {
-  title:
-    'Iniciar Sesion - Intercambio de Palabras: ¡Conecta palabras, intercambia letras, crea historias infinitas!',
+  title: 'LogIn - Heaven`s Books:  every page is a gateway to enlightenment',
   description:
-    'Intercambio de letras, tu destino principal para libros electrónicos. Descubre una amplia gama de géneros literarios, desde bestsellers hasta joyas literarias poco conocidas. Navega, compra y disfruta de la lectura en cualquier lugar con nuestra colección de ebooks. Envíos instantáneos, sin esperas ni costos de envío. ¡Sumérgete en historias cautivadoras con Intercambio de letras hoy mismo!',
+    'Explore the boundless realms of knowledge at Heaven`s Books: Where every page is a gateway to enlightenment!',
 }
 
 import LogInForm from '@/components/LogInForm'

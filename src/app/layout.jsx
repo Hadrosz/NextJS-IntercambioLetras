@@ -1,5 +1,6 @@
 import './globals.css'
 import NavBar from '@/components/NavBar'
+import Footer from '@/components/Footer'
 import { sofia, playfair } from '@/app/fonts'
 import { getServerSession } from 'next-auth'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
@@ -19,6 +20,7 @@ export default async function RootLayout({ children }) {
         <NavBar />
 
         <main className="w-[1570px]">{children}</main>
+        <Footer />
       </body>
     </html>
   )

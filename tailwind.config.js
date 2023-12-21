@@ -15,6 +15,7 @@ module.exports = {
       gridTemplateColumns: {
         'my-columns': '0.6fr 2fr',
         'form-name': '1fr 1fr',
+        'four-grid': '1fr 1fr 1fr 1fr',
       },
     },
     colors: {

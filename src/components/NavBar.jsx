@@ -8,7 +8,7 @@ async function NavBar() {
 
   return (
     <header className=" backdrop-blur-sm w-auto px-16 flex justify-center bg-gradient-to-b from-gradientFrom/60 to-gradientTo/20 rounded-b-3xl h-[80px]">
-      <nav className=" 	w-[1440px] flex justify-between  items-center text-white text-lg">
+      <nav className=" w-[1440px] flex justify-between  items-center text-white text-lg">
         <ul className="flex gap-8 text-xl">
           <li>
             <Link href="/" className="flex gap-3">
