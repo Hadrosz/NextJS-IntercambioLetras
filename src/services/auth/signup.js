@@ -1,6 +1,4 @@
-const URL_SIGNUP = ''
-
-export const signupPOST = async ({ username, email, password }) => {
+export const CreateUserSignUp = async ({ username, email, password }) => {
   const res = await fetch('/api/auth/signup', {
     method: 'POST',
     body: JSON.stringify({

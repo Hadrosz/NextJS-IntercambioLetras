@@ -12,6 +12,7 @@ export default function LogInForm() {
     handleSubmit,
     formState: { errors },
   } = useForm()
+
   const router = useRouter()
 
   const onSubmit = handleSubmit(async (data) => {
@@ -24,7 +25,6 @@ export default function LogInForm() {
       router.push('/')
       router.refresh()
     } else {
-      console.log(res)
       setError(res.error)
     }
   })

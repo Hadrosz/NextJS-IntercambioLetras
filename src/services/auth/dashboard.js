@@ -1,4 +1,4 @@
-export const userPUT = async ({
+export const userDataUpdate = async ({
   username,
   firstName,
   lastName,
@@ -6,7 +6,7 @@ export const userPUT = async ({
   city,
   tel,
 }) => {
-  const res = await fetch('/api/user', {
+  const res = await fetch('/api/session/user', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
@@ -24,24 +24,8 @@ export const userPUT = async ({
   return { res, resJSON }
 }
 
-export const usernamePUT = async ({ username, email, oldUsername }) => {
-  const res = await fetch('/api/username', {
-    method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      oldUsername,
-      username,
-      email,
-    }),
-  })
-  const resJSON = await res.json()
-  return { res, resJSON }
-}
-
-export const passwordPUT = async (username, password) => {
-  const res = await fetch('/api/password', {
+export const passwordUserUpdate = async (username, password) => {
+  const res = await fetch('/api/session/password', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',

@@ -1,4 +1,4 @@
-import AsideDashboard from '@/components/AsideDashboard'
+import AsideDashboard from '@/components/dashboard/AsideDashboard'
 import { SessionProvider } from 'next-auth/react'
 import React from 'react'
 

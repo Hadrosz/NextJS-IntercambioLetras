@@ -1,9 +1,8 @@
 import './globals.css'
-import NavBar from '@/components/NavBar'
-import Footer from '@/components/Footer'
+import NavBar from '@/components/templates/NavBar'
+import Footer from '@/components/templates/Footer'
 import { sofia, playfair } from '@/app/fonts'
 import { getServerSession } from 'next-auth'
-import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import { SessionProvider } from 'next-auth/react'
 
 export const metadata = {

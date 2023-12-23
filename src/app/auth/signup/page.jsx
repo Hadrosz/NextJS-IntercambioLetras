@@ -1,4 +1,4 @@
-import SignUpForm from '@/components/SignUpForm'
+import SignUpForm from '@/components/forms/SignUpForm'
 
 export const metadata = {
   title: 'SignUp - Heaven`s Books:  every page is a gateway to enlightenment',

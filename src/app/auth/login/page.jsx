@@ -4,7 +4,7 @@ export const metadata = {
     'Explore the boundless realms of knowledge at Heaven`s Books: Where every page is a gateway to enlightenment!',
 }
 
-import LogInForm from '@/components/LogInForm'
+import LogInForm from '@/components/forms/LogInForm'
 
 function LoginPage() {
   return (

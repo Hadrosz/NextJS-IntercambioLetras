@@ -1,4 +1,4 @@
-import Privacy from '@/components/Privacy'
+import Privacy from '@/components/dashboard/Privacy'
 import { getServerSession } from 'next-auth'
 import Image from 'next/image'
 import React from 'react'

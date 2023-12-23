@@ -5,19 +5,15 @@ import Image from 'next/image'
 import { useEffect, useState } from 'react'
 import { authOptions } from '@/app/api/auth/[...nextauth]/route'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
 
 function AsideDashboard() {
-  const router = useRouter()
-
-  const [session, setSession] = useState({})
+  const [session, setSession] = useState(null)
 
   useEffect(() => {
     const data = async () => {
       const { user } = await getSession(authOptions)
       setSession(user)
     }
-
     data()
   }, [])
 
@@ -33,7 +29,7 @@ function AsideDashboard() {
           alt="logo"
           className="rounded-full"
         />
-        <h2 className="capitalize">{session.name}</h2>
+        <h2 className="capitalize">{session?.name}</h2>
       </div>
       <section className="w-full flex flex-col items-center text-xl gap-8">
         <article className="w-full flex justify-center items-center">
@@ -82,7 +78,6 @@ function AsideDashboard() {
       <button
         onClick={() => {
           signOut()
-          Router.push('/login')
         }}
         className={`py-4 px-16 bg-green rounded-[32px]  text-blueFort font-semibold ${playfair.className}`}
       >

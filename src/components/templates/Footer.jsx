@@ -23,13 +23,13 @@ function Footer() {
                 <Link href="/">Home</Link>
               </li>
               <li>
-                <Link href="/">Book</Link>
+                <Link href="/books">Book</Link>
               </li>
               <li>
-                <Link href="/">Series</Link>
+                <Link href="/series">Series</Link>
               </li>
               <li>
-                <Link href="/">News</Link>
+                <Link href="/news">News</Link>
               </li>
             </ul>
           </div>

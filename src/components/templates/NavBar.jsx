@@ -19,13 +19,13 @@ async function NavBar() {
             <Link href="/">Home</Link>
           </li>
           <li>
-            <Link href="/">Books</Link>
+            <Link href="/books">Books</Link>
           </li>
           <li>
-            <Link href="/">Series</Link>
+            <Link href="/series">Series</Link>
           </li>
           <li>
-            <Link href="/">News</Link>
+            <Link href="/news">News</Link>
           </li>
         </ul>
         <ul className="flex gap-8">
