@@ -14,7 +14,7 @@ export async function PUT(req) {
         lastName: data.lastName,
         country: data.country,
         city: data.city,
-        number: data.tel,
+        number: data.number,
       },
     })
 

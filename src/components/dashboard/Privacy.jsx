@@ -8,8 +8,6 @@ import { usernamePUT, passwordPUT } from '@/services/auth/dashboard'
 import bcrypt from 'bcryptjs'
 
 function Privacy({ user }) {
-  const router = useRouter()
-
   return (
     <section
       className={`w-full h-full bg-blueFort rounded-2xl p-8 ${sofia.className}`}
@@ -31,9 +29,6 @@ const PasswordForm = ({ user }) => {
       setDisable(true)
     }
   }
-
-  useEffect(() => {}, [])
-
   const {
     register,
     handleSubmit,
@@ -102,11 +97,8 @@ const UserInfoForm = ({ user }) => {
   const oldUsername = user.username
   const router = useRouter()
 
-  const [data, setData] = useState({})
+  const [data, setData] = useState(user)
   const [disable, setDisable] = useState(true)
-  useEffect(() => {
-    setData(user)
-  }, [])
 
   const {
     register,

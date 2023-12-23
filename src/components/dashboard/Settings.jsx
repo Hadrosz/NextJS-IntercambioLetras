@@ -1,32 +1,29 @@
 'use client'
 import { useForm } from 'react-hook-form'
 import { playfair, sofia } from '@/app/fonts'
-import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { userPUT } from '@/services/auth/dashboard'
+import { useState } from 'react'
+import { userDataUpdate } from '@/services/auth/dashboard'
 
 function Settings({ user }) {
   const [disable, setDisable] = useState(false)
-  const [data, setData] = useState({})
-  useEffect(() => {
-    setData(user)
-    setDisable(false)
-  }, [])
-  const handleChange = (event) => {}
-  const router = useRouter()
+  const [data, setData] = useState(user)
+
   const { register, handleSubmit } = useForm()
+
+  const onChange = (e) => {
+    setData({ ...data, [e.target.name]: e.target.value })
+  }
 
   const onSubmit = handleSubmit(async (data) => {
     data.username = user.username
-    console.log(data)
-    const { res, resJSON } = await userPUT(data)
+    const { res, resJSON } = await userDataUpdate(data)
     if (res.ok) {
       setDisable(true)
     } else {
-      router.refresh()
       alert(resJSON.message)
     }
   })
+
   return (
     <section
       className={`w-full h-full bg-blueFort rounded-2xl p-8 ${sofia.className}`}
@@ -40,23 +37,25 @@ function Settings({ user }) {
           <article className="w- flex flex-col gap-3">
             <label className="text-xl">Firstname</label>
             <input
+              name="firstName"
               disabled={disable}
-              value={data.firstName}
+              value={data?.firstName}
               placeholder="First name"
               autoComplete="given-name"
               type="text"
               className={`${sofia.className} ${
                 disable ? 'text-zinc' : 'text-white'
               } p-3 rounded-2xl mb-8 mt-3 bg-gradient-to-t from-[#3E606F] from-0% via-[#3E606F]/90 via-50% to-[#3E606F] to-100% backdrop-blur-xl`}
-              {...register('firstName', { onChange: (e) => handleChange })}
-              onChange={(e) => setData({ firstName: e.target.value })}
+              {...register('firstName')}
+              onChange={onChange}
             />
           </article>
           <article className="flex flex-col gap-3">
             <label className="text-xl">Last name</label>
             <input
+              name="lastName"
               disabled={disable}
-              value={data.lastName}
+              value={data?.lastName}
               autoComplete="family-name"
               type="text"
               placeholder="Last name"
@@ -64,7 +63,7 @@ function Settings({ user }) {
                 disable ? 'text-zinc' : 'text-white'
               } p-3 rounded-2xl mb-8 mt-3 bg-gradient-to-t from-[#3E606F] from-0% via-[#3E606F]/90 via-50% to-[#3E606F] to-100% backdrop-blur-xl`}
               {...register('lastName')}
-              onChange={(e) => setData({ lastName: e.target.value })}
+              onChange={onChange}
             />
           </article>
         </section>
@@ -72,8 +71,9 @@ function Settings({ user }) {
           <article className="w- flex flex-col gap-3">
             <label className="text-xl">Country</label>
             <input
+              name="country"
               disabled={disable}
-              value={data.country}
+              value={data?.country}
               autoComplete="country-name"
               type="text"
               placeholder="Country"
@@ -81,14 +81,15 @@ function Settings({ user }) {
                 disable ? 'text-zinc' : 'text-white'
               } p-3 rounded-2xl mb-8 mt-3 bg-gradient-to-t from-[#3E606F] from-0% via-[#3E606F]/90 via-50% to-[#3E606F] to-100% backdrop-blur-xl`}
               {...register('country')}
-              onChange={(e) => setData({ country: e.target.value })}
+              onChange={onChange}
             />
           </article>
           <article className="flex flex-col gap-3">
             <label className="text-xl">City</label>
             <input
+              name="city"
               disabled={disable}
-              value={data.city}
+              value={data?.city}
               autoComplete="address-level2"
               type="text"
               placeholder="City"
@@ -96,7 +97,7 @@ function Settings({ user }) {
                 disable ? 'text-zinc' : 'text-white'
               } p-3 rounded-2xl mb-8 mt-3 bg-gradient-to-t from-[#3E606F] from-0% via-[#3E606F]/90 via-50% to-[#3E606F] to-100% backdrop-blur-xl`}
               {...register('city')}
-              onChange={(e) => setData({ city: e.target.value })}
+              onChange={onChange}
             />
           </article>
         </section>
@@ -104,8 +105,9 @@ function Settings({ user }) {
           <article className=" flex flex-col gap-3">
             <label className="text-xl">Number</label>
             <input
+              name="number"
               disabled={disable}
-              value={data.number}
+              value={data?.number}
               autoComplete="tel"
               type="tel"
               pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}"
@@ -114,8 +116,8 @@ function Settings({ user }) {
               className={`${sofia.className} ${
                 disable ? 'text-zinc' : 'text-white'
               } p-3 rounded-2xl mb-8 mt-3 bg-gradient-to-t from-[#3E606F] from-0% via-[#3E606F]/90 via-50% to-[#3E606F] to-100% backdrop-blur-xl`}
-              {...register('tel')}
-              onChange={(e) => setData({ number: e.target.value })}
+              {...register('number')}
+              onChange={onChange}
             />
           </article>
           <article className="flex flex-col  gap-3">

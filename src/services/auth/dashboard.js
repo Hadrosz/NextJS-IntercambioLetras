@@ -4,7 +4,7 @@ export const userDataUpdate = async ({
   lastName,
   country,
   city,
-  tel,
+  number,
 }) => {
   const res = await fetch('/api/session/user', {
     method: 'PUT',
@@ -17,7 +17,7 @@ export const userDataUpdate = async ({
       lastName,
       country,
       city,
-      tel,
+      number,
     }),
   })
   const resJSON = await res.json()
